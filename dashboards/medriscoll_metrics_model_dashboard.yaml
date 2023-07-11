@@ -1,0 +1,45 @@
+# Visit https://docs.rilldata.com/reference/project-files to learn more about Rill project files.
+
+title: "medriscoll_metrics_model_dashboard"
+model: "medriscoll_metrics_model"
+default_time_range: ""
+smallest_time_grain: ""
+timeseries: "usage_start_time"
+measures:
+  - label: Total records
+    expression: count(*)
+    name: total_records
+    description: Total number of records present
+    format_preset: humanize
+  - label: "Total cost"
+    expression: "sum(cost)"
+    name: measure
+    description: "Total cost"
+    format_preset: currency_usd
+  - label: "Total units of usage "
+    expression: "sum(usage_amount) / 10^6"
+    name: measure_1
+    description: "Total usage units"
+    format_preset: humanize
+  - label: "Cost per usage unit"
+    expression: "sum(cost) / sum(usage_amount)*10^6"
+    name: measure_2
+    description: ""
+    format_preset: humanize
+dimensions:
+  - name: service_description
+    label: Service_description
+    column: service_description
+    description: ""
+  - name: sku_description
+    label: Sku_description
+    column: sku_description
+    description: ""
+  - name: usage_unit
+    label: Usage_unit
+    column: usage_unit
+    description: ""
+  - name: pricing_unit
+    label: Pricing_unit
+    column: pricing_unit
+    description: ""
